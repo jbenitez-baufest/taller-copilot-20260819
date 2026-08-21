@@ -1,5 +1,6 @@
 """Aplicación Web API con FastAPI que implementa un caso de uso de JWT."""
 from fastapi import Depends, FastAPI, HTTPException, status
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.auth import authenticate_user, create_access_token, decode_token, get_current_user
 from app.schemas import LoginRequest, RefreshRequest, TokenResponse
@@ -8,6 +9,15 @@ app = FastAPI(
     title="JWT Auth API",
     description="Web API que implementa autenticación con JSON Web Tokens (JWT)",
     version="0.1.0",
+)
+
+# CORS: permite que el frontend (Vite) consuma la API desde http://localhost:5173
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
