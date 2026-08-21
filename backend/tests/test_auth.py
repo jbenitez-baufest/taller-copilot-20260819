@@ -106,3 +106,15 @@ def test_refresh_with_expired_token():
 def test_root():
     response = client.get("/")
     assert response.status_code == 200
+
+
+def test_cors_preflight_allows_frontend_origin():
+    response = client.options(
+        "/login",
+        headers={
+            "Origin": "http://localhost:5173",
+            "Access-Control-Request-Method": "POST",
+        },
+    )
+    assert response.status_code == 200
+    assert response.headers["access-control-allow-origin"] == "http://localhost:5173"
