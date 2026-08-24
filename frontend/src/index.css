@@ -333,6 +333,66 @@ body {
   overflow-wrap: anywhere;
 }
 
+/* Certificaciones de Microsoft en IA 2026 */
+.certifications-section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.certifications-section h2 {
+  margin: 0 0 var(--spacing-sm);
+}
+
+.certifications-intro {
+  max-width: 520px;
+  margin: 0 0 var(--spacing-lg);
+  color: var(--color-body-dark);
+  font-size: 16px;
+}
+
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--spacing-lg);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.certification-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  height: 100%;
+}
+
+.certification-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xs);
+}
+
+.certification-card h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.certification-card p {
+  flex: 1;
+  margin: 0;
+  color: var(--color-body-dark);
+  font-size: 14px;
+}
+
+.certification-card a {
+  color: var(--color-on-dark);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.45px;
+}
+
 /* Responsive (breakpoints de DESIGN.md) */
 @media (max-width: 768px) {
   .hero-band-dark {
