@@ -1,5 +1,40 @@
 import { useAuth } from '../context/AuthContext'
 
+const AI_CERTIFICATIONS_2026 = [
+  {
+    code: 'AI-900',
+    name: 'Microsoft Certified: Azure AI Fundamentals',
+    level: 'Principiante',
+    description:
+      'Demuestra conocimientos fundamentales de conceptos de IA y de los servicios de Microsoft Azure para crear soluciones de IA.',
+    url: 'https://learn.microsoft.com/credentials/certifications/azure-ai-fundamentals/',
+  },
+  {
+    code: 'AI-102',
+    name: 'Microsoft Certified: Azure AI Engineer Associate',
+    level: 'Intermedio',
+    description:
+      'Diseña e implementa soluciones de IA en Azure usando Azure AI Services, Azure AI Search y Azure OpenAI.',
+    url: 'https://learn.microsoft.com/credentials/certifications/azure-ai-engineer/',
+  },
+  {
+    code: 'AI-103',
+    name: 'Azure AI Apps and Agents Developer Associate',
+    level: 'Intermedio',
+    description:
+      'Nueva certificación 2026: desarrolla aplicaciones y agentes de IA en Azure. Reemplaza a Azure AI Engineer Associate en las especializaciones de AI Platform y AI Apps.',
+    url: 'https://learn.microsoft.com/credentials/certifications/resources/study-guides/ai-103',
+  },
+  {
+    code: 'AB-100',
+    name: 'Microsoft Certified: Agentic AI Business Solutions Architect',
+    level: 'Avanzado',
+    description:
+      'Nueva certificación 2026: arquitectura de soluciones empresariales con IA agéntica en Dynamics 365 y Power Platform.',
+    url: 'https://learn.microsoft.com/credentials/certifications/resources/study-guides/ab-100',
+  },
+]
+
 function formatExpiration(expiresAt) {
   if (!expiresAt) return '—'
   return new Date(expiresAt).toLocaleTimeString()
@@ -39,6 +74,35 @@ export default function WelcomePage() {
               <dt>Expira a las</dt>
               <dd>{formatExpiration(session?.expiresAt)}</dd>
             </dl>
+          </section>
+
+          <section className="certifications-section" aria-label="Certificaciones de Microsoft en IA 2026">
+            <h2 className="heading-lg">Certificaciones de Microsoft en IA 2026</h2>
+            <p className="certifications-intro">
+              Estas son las certificaciones más recientes de Microsoft en Inteligencia
+              Artificial para 2026, según Microsoft Learn.
+            </p>
+            <ul className="certifications-grid">
+              {AI_CERTIFICATIONS_2026.map((certification) => (
+                <li key={certification.code}>
+                  <article className="card-dark certification-card">
+                    <div className="certification-card-header">
+                      <span className="badge-info">{certification.code}</span>
+                      <span className="caption-md mute-dark">{certification.level}</span>
+                    </div>
+                    <h3>{certification.name}</h3>
+                    <p>{certification.description}</p>
+                    <a
+                      href={certification.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Ver en Microsoft Learn
+                    </a>
+                  </article>
+                </li>
+              ))}
+            </ul>
           </section>
         </div>
       </main>
